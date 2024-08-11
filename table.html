@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .toggle-button {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-button">
+    <button><span id="toggleButton">+</span></button>
+  </div>
+
+  <table id="table1">
+    <tr>
+      <th>Навык</th>
+      <th>Наименование текущего уровня</th>
+      <th>Сложность следующего уровня</th>
+      <th>Вы можете / не можете</th>
+    </tr> 
+    <!-- Add your table rows here -->
+    <tr>
+      <td>Управление шаттлом</td>
+      <td>0</td>
+      <td>Описание уровня навыка</td>
+    </tr>
+    <tr>
+      <td>Владение оружием</td>
+      <td>0</td>
+      <td>Описание уровня навыка</td>
+    </tr>
+    <tr>
+      <td>Обезвреживание бомб</td>
+      <td>0</td>
+      <td>Описание уровня навыка</td>
+    </tr>
+    <!-- Add more table rows here -->
+  </table>
+
+  <table id="table2" style="display: none;">
+    <tr>
+      <th>Навык</th>
+      <th>Наименование текущего уровня</th>
+      <th>Сложность следующего уровня</th>
+      <th>Вы можете / не можете</th>
+    </tr>
+    <!-- Add your table rows here -->
+    <tr>
+      <td>Взлом</td>
+      <td>0</td>
+      <td>Описание уровня навыка</td>
+    </tr>
+    <tr>
+      <td>Атмос</td>
+      <td>0</td>
+      <td>Описание уровня навыка</td>
+    </tr>
+    <tr>
+      <td>Источники энергии</td>
+      <td>0</td>
+      <td>Описание уровня навыка</td>
+    </tr>
+    <!-- Add more table rows here -->
+  </table>
+
+  <script>
+     var isTable1Visible = true;
+     var timer;
+ 
+     document.getElementById('toggleButton').addEventListener('click', function() {
+       var table1 = document.getElementById('table1');
+       var table2 = document.getElementById('table2');
+       var toggleButton = document.getElementById('toggleButton');
+ 
+       if (isTable1Visible) {
+         table1.style.display = 'none';
+         table2.style.display = 'block';
+         toggleButton.textContent = '-';
+         isTable1Visible = false;
+ 
+         // Start the timer
+         timer = setTimeout(switchTables, 6000);
+       } else {
+         table1.style.display = 'block';
+         table2.style.display = 'none';
+         toggleButton.textContent = '+';
+         isTable1Visible = true;
+ 
+         // Clear the timer
+         clearTimeout(timer);
+       }
+     });
+ 
+     function switchTables() {
+       var table1 = document.getElementById('table1');
+       var table2 = document.getElementById('table2');
+       var toggleButton = document.getElementById('toggleButton');
+ 
+       table1.style.display = 'block';
+       table2.style.display = 'none';
+       toggleButton.textContent = '+';
+       isTable1Visible = true;
+     }
+   </script>
+   
+</body>
+</html>
